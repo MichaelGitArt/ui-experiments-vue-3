@@ -1,0 +1,7 @@
+@mixin button-sizes() {
+  @each $name, $size in $button-sizes {
+    .a-btn--size-#{$name} {
+      height: map-get($size, height);
+    }
+  }
+}

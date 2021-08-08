@@ -1,0 +1,24 @@
+@mixin background-color($color_value) {
+  background-color: map-get($color_value, color) !important;
+  color: map-get($color_value, on-color) !important;
+}
+
+@each $color_name, $color_value in $colors {
+  .bg-#{'' + $color_name} {
+    @include background-color($color_value);
+  }
+
+  .text-#{'' + $color_name} {
+    color: map-get($color_value, color) !important;
+  }
+}
+
+:root {
+  @each $color_name, $color_value in $colors {
+    $color: map-get($color_value, color);
+    $on-color: map-get($color_value, on-color);
+
+    --v-#{'' + $color_name}: #{$color};
+    --v-on-#{'' + $color_name}: #{$on-color};
+  }
+}

@@ -1,0 +1,20 @@
+@mixin states ($selector: '&::before')
+  &:hover
+    #{$selector}
+      opacity: map-get($states, 'hover')
+
+  &:focus
+    #{$selector}
+      opacity: map-get($states, 'focus')
+  
+  &--active 
+    +active-state($selector)
+
+@mixin active-state($selector: '$::before')
+  &:hover#{$selector},
+  #{$selector}
+    opacity: map-get($states, 'activated')
+
+  &:focus
+    #{$selector}
+      opacity: map-get($states, 'pressed')

@@ -1,0 +1,12 @@
+$button-border-radius: $standart-border-radius;
+$button-sizes: (
+  small: (
+    height: 38px,
+  ),
+  default: (
+    height: 50px,
+  ),
+  large: (
+    height: 60px,
+  ),
+);

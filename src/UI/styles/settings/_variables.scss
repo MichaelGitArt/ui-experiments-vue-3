@@ -1,0 +1,83 @@
+// $border-color-root: rgba(
+//   var(--v-border-color),
+//   var(--v-border-opacity)
+// ) !default;
+$border-radius-root: 4px !default;
+$border-style-root: solid !default;
+$standard-easing: cubic-bezier(0.4, 0, 0.2, 1);
+$standart-border-radius: 4px;
+$spacer: 4px !default;
+
+$spacers: () !default;
+@if (type-of($spacers) == list) {
+  @for $i from 0 through 16 {
+    $spacers: map-merge(
+      $spacers,
+      (
+        $i: $spacer * $i,
+      )
+    );
+  }
+}
+
+$negative-spacers: () !default;
+@if (type-of($negative-spacers) == list) {
+  @for $i from 1 through 16 {
+    $negative-spacers: map-merge($negative-spacers, ('n' + $i: -$spacer * $i));
+  }
+}
+
+$rounded: (
+  0: 0,
+  'sm': $border-radius-root / 2,
+  null: $border-radius-root,
+  'lg': $border-radius-root * 2,
+  'xl': $border-radius-root * 6,
+  'pill': 9999px,
+  'circle': 50%,
+  'shaped': $border-radius-root * 6 0,
+);
+
+$states: (
+  'hover': 0.08,
+  'focus': 0.18,
+  'activated': 0.18,
+  'pressed': 0.22,
+);
+
+$borders: (
+  0: 0,
+  null: thin,
+  sm: 1px,
+  md: 2px,
+  lg: 4px,
+  xl: 8px,
+);
+
+// @each $key, $border in $borders {
+//   $borders: map-deep-merge(
+//     $borders,
+//     (
+//       $key: $border $border-style-root $border-color-root,
+//     )
+//   );
+// }
+
+$border-opacities: () !default;
+$border-opacities: (
+  0: 0,
+  null: 0.12,
+  25: 0.25,
+  50: 0.5,
+  75: 0.75,
+  100: 1,
+);
+
+$grid-breakpoints: (
+  'xs': 0,
+  'sm': 600px,
+  'md': 960px,
+  'lg': 1280px,
+  'xl': 1920px,
+  'xxl': 2560px,
+);
